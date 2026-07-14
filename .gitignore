@@ -1,0 +1,6 @@
+db-data/
+ha-config/
+ollama-data/
+node-red-data/
+*.log
+.DS_Store
