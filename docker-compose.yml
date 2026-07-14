@@ -1,0 +1,16 @@
+homeassistant:
+    container_name: homeassistant
+    image: "ghcr.io/home-assistant/home-assistant:stable"
+    volumes:
+      - ./ha-config:/config
+    restart: unless-stopped
+    network_mode: host
+
+  esphome:
+    container_name: esphome
+    image: esphome/esphome
+    volumes:
+      - ./esphome-config:/config
+    restart: unless-stopped
+    ports:
+      - "6052:6052"
