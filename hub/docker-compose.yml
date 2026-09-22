@@ -1,0 +1,27 @@
+services:
+  homeassistant:
+    image: ghcr.io/home-assistant/home-assistant:stable
+    network_mode: host
+    privileged: true
+    restart: unless-stopped
+    volumes:
+      - /home/cwa/homeassistant:/config
+    environment:
+      - TZ=Asia/Bangkok
+
+  mqtt:
+    image: eclipse-mosquitto:latest
+    restart: unless-stopped
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - /home/cwa/mosquitto/config:/mosquitto/config
+
+  nodered:
+    image: nodered/node-red:latest
+    restart: unless-stopped
+    ports:
+      - "1880:1880"
+    volumes:
+      - /home/cwa/nodered:/data

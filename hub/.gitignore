@@ -1,0 +1,4 @@
+homeassistant/
+nodered/
+mosquitto/log/
+.DS_Store
